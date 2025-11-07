@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Proctocare Clinic — From Pain to Permanent Relief</title>
+<meta name="description" content="Proctocare Clinic — advanced, painless laser & non-surgical treatments for Piles, Fissure, Fistula & Pilonidal Sinus." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nav-h:72px;
+  --txt:#08121a;
+  --muted:#4b5563;
+  --card-radius:16px;
+  --shadow: 0 16px 40px rgba(2,8,23,0.10);
+  --glass: rgba(255,255,255,0.66);
+  --transition: 420ms cubic-bezier(.2,.9,.2,1);
+
+  /* gradient colors (requested): blue, yellow, gold, green, red */
+  --c1: #ec509e;  
+  --c2: #e4d500;  
+  --c3: #5bf020;  
+  --c4: #dd2a93;  
+  --c5: #9713e4;  
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+
+/* ---------- reset ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#fff;color:var(--txt);-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ---------- animated multi-color background ---------- */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:-2;
+  background: linear-gradient(120deg, var(--c1), var(--c2) 25%, var(--c3) 45%, var(--c4) 70%, var(--c5) 95%);
+  filter: blur(28px) saturate(110%);
+  opacity:0.95;
+  animation: bgShift 20s linear infinite;
+  transform: scale(1.1);
+}
+@keyframes bgShift {
+  0%{ filter: blur(28px) saturate(110%); background: linear-gradient(120deg, var(--c1), var(--c2) 25%, var(--c3) 45%, var(--c4) 70%, var(--c5) 95%);}
+  25%{ filter: blur(26px) saturate(120%); background: linear-gradient(120deg, var(--c2), var(--c3) 25%, var(--c4) 45%, var(--c5) 70%, var(--c1) 95%);}
+  50%{ filter: blur(24px) saturate(115%); background: linear-gradient(120deg, var(--c3), var(--c4) 25%, var(--c5) 45%, var(--c1) 70%, var(--c2) 95%);}
+  75%{ filter: blur(26px) saturate(118%); background: linear-gradient(120deg, var(--c4), var(--c5) 25%, var(--c1) 45%, var(--c2) 70%, var(--c3) 95%);}
+  100%{ filter: blur(28px) saturate(110%); background: linear-gradient(120deg, var(--c1), var(--c2) 25%, var(--c3) 45%, var(--c4) 70%, var(--c5) 95%);}
+}
+
+/* ---------- header / nav ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; height:var(--nav-h);
+  display:flex; align-items:center; justify-content:space-between; padding:12px 18px;
+  z-index:1200; backdrop-filter: blur(6px);
+  background: linear-gradient(90deg, rgba(255,255,255,0.88), rgba(255,255,255,0.6));
+  border-bottom:1px solid rgba(8,18,28,0.06);
+}
+.brand{ display:flex; flex-direction:column; gap:2px; }
+.brand .title{ font-family:'Playfair Display', serif; font-weight:700; font-size:18px;
+  background: linear-gradient(90deg,var(--c1),var(--c5)); -webkit-background-clip:text; color:transparent; }
+.brand .tag{ font-size:12px; color:var(--muted); }
+
+nav{ display:flex; gap:10px; align-items:center; }
+nav a{ padding:8px 12px; border-radius:999px; font-weight:700; color:var(--txt); transition: all 220ms ease; }
+nav a:hover{ transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.06); }
+nav a.active{ color:#fff; background: linear-gradient(90deg,var(--c1),var(--c5)); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+
+.actions{ display:flex; gap:10px; align-items:center; }
+.cta{ background: linear-gradient(90deg,var(--c4),var(--c3)); color:#001; padding:10px 14px; border-radius:12px; font-weight:900; box-shadow:0 16px 40px rgba(0,0,0,0.08); }
+.hamb{ display:none; width:48px;height:48px;border-radius:12px; display:grid; place-items:center; cursor:pointer; }
+
+/* ---------- main layout ---------- */
+main{ margin-top: calc(var(--nav-h) + 8px); }
+section{ padding:54px 18px 80px; min-height: calc(100vh - var(--nav-h) - 24px); scroll-margin-top: calc(var(--nav-h) + 18px); }
+.container{ max-width:1100px; margin:0 auto; }
+h1,h2{ font-family:'Playfair Display', serif; margin:0 0 12px 0; color:var(--txt); }
+h1{ font-size:40px; line-height:1.02; }
+h2{ font-size:28px; }
+.lead{ color:var(--muted); font-size:15px; line-height:1.6; margin-bottom:16px; }
+
+/* ---------- hero ---------- */
+.hero{ display:flex; gap:22px; align-items:center; flex-wrap:wrap; border-radius:16px; background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9)); padding:22px; box-shadow:var(--shadow); }
+.hero-left{ flex:1 1 520px; min-width:260px; }
+.hero-right{ flex:0 0 360px; min-width:200px; display:flex; justify-content:center; align-items:center; }
+.hero-card{ background:#fff; border-radius:12px; padding:14px; box-shadow:var(--shadow); width:100%; }
+.cta-row{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+.btn-call{ background: linear-gradient(90deg,var(--c4),var(--c3)); padding:12px 14px; border-radius:12px; color:#001; font-weight:900; box-shadow:0 12px 30px rgba(0,0,0,0.08); }
+.btn-muted{ background:transparent; border:2px dashed rgba(8,18,28,0.06); padding:10px 12px; border-radius:12px; font-weight:800; }
+
+/* stats */
+.stats{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+.stat{ background:linear-gradient(180deg,#fff,#fff); padding:12px 16px; border-radius:12px; font-weight:900; min-width:120px; text-align:center; box-shadow:var(--shadow); }
+
+/* ---------- services ---------- */
+.services-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px; margin-top:18px; }
+.service-card{ border-radius:12px; padding:16px; background: linear-gradient(180deg,#fff,#fffaf0); box-shadow:var(--shadow); transition: transform var(--transition); }
+.service-card:hover{ transform: translateY(-8px) rotate(-0.6deg); background: linear-gradient(135deg, rgba(14,165,255,0.04), rgba(255,77,109,0.04)); }
+.badge{ display:inline-block; padding:6px 10px; border-radius:999px; background: linear-gradient(90deg,var(--c1),var(--c5)); color:#fff; font-weight:800; margin-bottom:10px; }
+
+/* ---------- doctor ---------- */
+.doctor-card{ padding:18px; border-radius:12px; background: linear-gradient(180deg,#fff,#fffef8); box-shadow:var(--shadow); }
+.doctor-name{ font-weight:900; font-size:20px; margin-bottom:6px; }
+.doctor-qual{ color:var(--muted); margin-bottom:8px; }
+.tiles{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+.tile{ background:#fff; border-radius:10px; padding:10px; box-shadow:var(--shadow); font-weight:800; min-width:120px; text-align:center; }
+
+/* ---------- testimonials ---------- */
+.testimonials-wrap{ margin-top:18px; overflow:hidden; position:relative; }
+.test-list{ display:flex; gap:14px; transition: transform 600ms cubic-bezier(.2,.9,.2,1); will-change: transform; }
+.test-card{ min-width:260px; background: linear-gradient(180deg,#ffffff,#fffaf3); border-radius:12px; padding:16px; box-shadow:var(--shadow); }
+.test-quote{ color:var(--muted); font-style:italic; margin-bottom:10px; }
+.test-author{ font-weight:900; }
+
+/* testimonial controls & indicators */
+.test-controls{ display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:12px; }
+.test-buttons{ display:flex; gap:8px; }
+.test-btn{ padding:8px 10px; border-radius:10px; background:#fff; border:1px solid rgba(0,0,0,0.06); cursor:pointer; }
+.dots{ display:flex; gap:8px; align-items:center; }
+.dot{ width:10px;height:10px;border-radius:999px;background:rgba(0,0,0,0.12); cursor:pointer; }
+.dot.active{ background: linear-gradient(90deg,var(--c1),var(--c5)); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+
+/* ---------- social section ---------- */
+.social-grid{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; align-items:center; }
+.social-card{ padding:12px 14px; border-radius:10px; background: linear-gradient(90deg,#fff,#fffaf3); box-shadow:var(--shadow); display:flex; gap:10px; align-items:center; font-weight:800; }
+
+/* ---------- contact ---------- */
+.contact-grid{ display:grid; grid-template-columns: 1fr 420px; gap:18px; margin-top:18px; align-items:start; }
+.map-frame{ width:100%; min-height:320px; border-radius:12px; border:0; box-shadow:var(--shadow); }
+.contact-card{ padding:18px; border-radius:12px; background: linear-gradient(90deg,#fff,#fffbf2); box-shadow:var(--shadow); font-weight:800; }
+.contact-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+
+/* ---------- print-friendly contact card ---------- */
+.print-card {
+  display:none;
+}
+@media print {
+  body *{ visibility:hidden; }
+  .print-card, .print-card *{ visibility:visible; }
+  .print-card{ display:block; position:fixed; left:0; top:0; width:100%; padding:18px; background:#fff; color:#000; font-size:14px; }
+  /* prevent gradient background on print for clarity */
+  body::before{ display:none; }
+}
+
+/* ---------- footer ---------- */
+footer{ padding:18px; text-align:center; color:var(--muted); font-size:14px; margin-top:10px; }
+
+/* ---------- reveal animation helper ---------- */
+.reveal{ opacity:0; transform: translateY(14px); transition: opacity 520ms ease, transform 520ms ease; will-change: transform, opacity; }
+.reveal.show{ opacity:1; transform:none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px){
+  nav{ display:none; }
+  .hamb{ display:grid; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .test-list{ padding-bottom:8px; -webkit-overflow-scrolling:touch; overflow-x:auto; }
+  .test-list::-webkit-scrollbar{ display:none; }
+}
+@media (max-width:600px){
+  h1{ font-size:28px; }
+  .brand .title{ font-size:16px; }
+  .stat{ min-width:100px; padding:10px; }
+  .test-card{ min-width:220px; }
+  .hero-right{ order:2; width:100%; margin-top:10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header role="banner">
+  <div class="brand" aria-hidden="false">
+    <div class="title">Proctocare Clinic</div>
+    <div class="tag">From Pain to Permanent Relief</div>
+  </div>
+
+  <nav role="navigation" aria-label="Primary navigation" class="nav">
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#doctor" class="nav-link">Doctor</a>
+    <a href="#testimonials" class="nav-link">Testimonials</a>
+    <a href="#social" class="nav-link">Social</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <div class="actions">
+    <a class="cta" href="tel:9325921813" aria-label="Call clinic">Call 9325921813</a>
+    <div class="hamb" id="hamb" aria-label="Open menu" tabindex="0">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1.5h18M0 7h18M0 12.5h18" stroke="#08121a" stroke-linecap="round" stroke-width="1.6"/></svg>
+    </div>
+  </div>
+</header>
+
+<!-- PRINT-FRIENDLY CONTACT CARD (visible only in print) -->
+<div class="print-card">
+  <div style="max-width:700px;margin:10px auto;border:2px solid #000;padding:18px;border-radius:8px;">
+    <h2 style="margin-bottom:6px;">Proctocare Clinic</h2>
+    <div style="font-weight:700;margin-bottom:8px;">Dr. Sufiya Adil Shaikh — BUMS + MS (General Surgeon)</div>
+    <div style="margin-bottom:6px;">Shop No. 7, Rehmat Apt, near National Medical, Teen Matka, Rashid Compound, next to Petrol Pump, Kausa, Mumbra, Thane — 400612</div>
+    <div style="margin-bottom:6px;">Phone: 9325921813</div>
+    <div style="margin-bottom:6px;">Email: contact@proctocare.com | Sufiyashaikh0825@gmail.com</div>
+    <div style="margin-top:12px;font-weight:800;">Clinic Timings: 11:00 AM — 2:00 PM | 7:00 PM — 10:30 PM</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- HOME / HERO -->
+  <section id="home" class="reveal" aria-labelledby="homeTitle">
+    <div class="container hero">
+      <div class="hero-left">
+        <h1 id="homeTitle">From Pain to Permanent Relief</h1>
+        <p class="lead">We specialize in advanced, minimally invasive and laser-assisted treatments for <strong>Piles (Hemorrhoids), Anal Fissure, Fistula</strong> and <strong>Pilonidal Sinus</strong>. Same-day procedures with expert care and personalized diet & lifestyle guidance.</p>
+
+        <div class="cta-row">
+          <a class="btn-call" href="tel:9325921813">📞 Call Clinic — 9325921813</a>
+          <a class="btn-muted" href="#" onclick="window.print();return false;">🖨 Print Contact</a>
+        </div>
+
+        <div class="stats" aria-hidden="false">
+          <div class="stat">10+<div style="font-size:12px;font-weight:700;color:var(--muted)">Years Experience</div></div>
+          <div class="stat">6000+<div style="font-size:12px;font-weight:700;color:var(--muted)">Patients Operated</div></div>
+          <div class="stat">Day-care<div style="font-size:12px;font-weight:700;color:var(--muted)">Same-day discharge</div></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card" aria-hidden="true">
+          <h3 style="margin:0 0 8px 0">Proctocare — Quick Snapshot</h3>
+          <p style="margin:0 0 12px;color:var(--muted)">Modern laser & non-surgical solutions focused on fast recovery and long-term relief.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <div style="padding:8px 10px;border-radius:10px;background:linear-gradient(90deg,var(--c1),var(--c5));color:#fff;font-weight:800">Laser</div>
+            <div style="padding:8px 10px;border-radius:10px;background:linear-gradient(90deg,var(--c4),#fff8f0);color:#001;font-weight:800;border:1px solid rgba(0,0,0,0.04)">Day-care</div>
+            <div style="padding:8px 10px;border-radius:10px;background:linear-gradient(90deg,var(--c2),var(--c3));color:#001;font-weight:800">Minimal Pain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="reveal" aria-labelledby="servicesTitle">
+    <div class="container">
+      <h2 id="servicesTitle">Our Services</h2>
+      <p class="lead">Laser & minimally invasive care for proctological conditions — day-care procedures and compassionate follow-up.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="badge">Laser</div>
+          <h3 style="margin:6px 0 8px 0">Piles (Hemorrhoids)</h3>
+          <p style="margin:0;color:var(--muted)">Painless laser excision/coagulation — minimal blood loss, quick recovery.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="badge">Precision</div>
+          <h3 style="margin:6px 0 8px 0">Anal Fissure</h3>
+          <p style="margin:0;color:var(--muted)">Targeted therapy to reduce spasm and allow healing with minimal discomfort.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="badge">Expert</div>
+          <h3 style="margin:6px 0 8px 0">Fistula</h3>
+          <p style="margin:0;color:var(--muted)">Modern approaches aiming to preserve continence and reduce recurrence.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="badge">Care</div>
+          <h3 style="margin:6px 0 8px 0">Pilonidal Sinus</h3>
+          <p style="margin:0;color:var(--muted)">Minimally invasive laser treatment for faster recovery and less scarring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTOR -->
+  <section id="doctor" class="reveal" aria-labelledby="doctorTitle">
+    <div class="container">
+      <h2 id="doctorTitle">Meet Our Specialist</h2>
+
+      <div class="doctor-card">
+        <div class="doctor-name">Dr. Sufiya Adil Shaikh</div>
+        <div class="doctor-qual">BUMS(Pune)</div>
+        <div class="doctor-qual">MS General Surgery (Pune)</div>
+          <div class="doctor-qual">Fellowship in Proctology (Pune)</div>
+        <div style="margin-top:10px;font-weight:900">10+ years of experience • 6000+ patients treated</div>
+
+        <div class="tiles" style="margin-top:14px">
+          <div class="tile">Proctology Specialist</div>
+          <div class="tile">Laser & Minimally Invasive</div>
+          <div class="tile">Patient-centred Care</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="reveal" aria-labelledby="testiTitle">
+    <div class="container">
+      <h2 id="testiTitle">Testimonials</h2>
+      <p class="lead">Real patients — real relief.</p>
+
+      <div class="testimonials-wrap" aria-live="polite">
+        <div class="test-list" id="testList" aria-hidden="false">
+          <!-- Add many testimonials (user requested more) -->
+          <div class="test-card">
+            <div class="test-quote">“The procedure was quick and comfortable. I went home the same day and healed fast. Highly recommend!”</div>
+            <div class="test-author">— N.Khan</div>
+          </div>
+
+          <div class="test-card">
+            <div class="test-quote">“Dr. Sufiya explained everything and made me feel calm. Recovery was faster than expected.”</div>
+            <div class="test-author">— Ayesha.S</div>
+          </div>
+          <br>
+
+          <div class="test-card">
+            <div class="test-quote">“Fast recovery, friendly staff and modern equipment — a great experience.”</div>
+            <div class="test-author">—Zaveriya.S</div>
+          </div>
+
+          <div class="test-card">
+            <div class="test-quote">“Minimal pain and excellent follow-up care. The clinic felt very professional.”</div>
+            <div class="test-author">— Hamdan.S</div>
+          </div>
+
+         
+  </section>
+
+  <!-- SOCIAL -->
+  <section id="social" class="reveal" aria-labelledby="socialTitle">
+    <div class="container">
+      <h2 id="socialTitle">Follow & Contact Us</h2>
+      <p class="lead">Direct links to Instagram, WhatsApp and call. Tap to open the appropriate app on mobile.</p>
+
+      <div class="social-grid">
+        <a class="social-card" href="https://www.instagram.com/PILES.FISSURE.FISTULA.CLINIC_" target="_blank" rel="noopener" aria-label="Open Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="#08121a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" stroke="#08121a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 6.4h.01" stroke="#08121a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Instagram: @PILES.FISSURE.FISTULA.CLINIC_
+        </a>
+        <br>
+
+        <a class="social-card" href="https://wa.me/919325921813" target="_blank" rel="noopener" aria-label="Open WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M21 11.5a8.38 8.38 0 0 1-2.37 5.99L21 21l-3.51-1.37A8.38 8.38 0 1 1 21 11.5z" stroke="#08121a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 13.5c-.4 0-1.5-.5-2.1-1 .5-.6.9-1.5.9-2.5 0-1.9-1.5-3.5-3.4-3.5s-3.4 1.6-3.4 3.5S9.5 13.5 11.4 13.5c.8 0 1.8-.7 2.4-1.3.5-.5 1.3-.7 2-.7" stroke="#08121a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          WhatsApp: +91 9325921813
+        </a>
+        <br>
+
+        <a class="social-card" href="tel:9325921813" aria-label="Call clinic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px"><path d="M22 16.92V21a1 1 0 0 1-1.09 1 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3-8.63A1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.6.35 1.67.77 2.84a1 1 0 0 1-.24 1L7.21 8.79a16 16 0 0 0 6 6l1.2-1.2a1 1 0 0 1 1-.24c1.17.42 2.24.65 2.84.77a1 1 0 0 1 .75 1V21z" stroke="#08121a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Call: 9325921813
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal" aria-labelledby="contactTitle">
+    <div class="container">
+      <h2 id="contactTitle">Contact & Location</h2>
+      <p class="lead">Visit the clinic or reach out using any of the contact options below.</p>
+
+      <div class="contact-grid">
+        <iframe class="map-frame"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Shop+No+7+Rehmat+Apartment+Kausa+Mumbra+Thane+400612&output=embed"></iframe>
+
+        <div class="contact-card">
+          <div><strong>Address:</strong><br>Shop No. 7, Rehmat Apt, near National Medical, Teen Matka, Rashid Compound, next to Petrol Pump, Kausa, Mumbra, Thane — 400612</div>
+
+          <div class="contact-row">
+            <a class="social-card" href="tel:9325921813" aria-label="Call">📞 9325921813</a>
+            <a class="social-card" href="https://wa.me/919325921813" target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
+          </div>
+
+          <div class="contact-row" style="margin-top:12px;">
+           <a class="social-card" href="mailto:Sufiyashaikh0825@gmail.com" aria-label="Email doctor">✉️ Sufiyashaikh0825@gmail.com</a>
+          </div>
+
+          <p style="margin-top:14px;font-weight:900">Clinic Timings:
+            <br>
+             11:00 AM — 2:00 PM |
+             <br>
+              7:00 PM — 10:30 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2025 Proctocare Clinic -Limited • <a href="tel:9325921813">93259 21813</a>
+</footer>
+
+<script>
+/* ---------------- NAV + MOBILE MENU + SCROLL SPY ---------------- */
+(function(){
+  const nav = document.querySelector('nav');
+  const links = Array.from(document.querySelectorAll('.nav-link'));
+  const sections = Array.from(document.querySelectorAll('section'));
+  const hamb = document.getElementById('hamb');
+
+  function showMobile(show){
+    if(!nav) return;
+    if(show){
+      nav.style.display = 'flex';
+      nav.style.flexDirection = 'column';
+      nav.style.position = 'absolute';
+      nav.style.top = '72px';
+      nav.style.right = '12px';
+      nav.style.background = 'rgba(255,255,255,0.98)';
+      nav.style.padding = '12px';
+      nav.style.borderRadius = '12px';
+      nav.style.boxShadow = '0 12px 30px rgba(2,8,23,0.08)';
+    } else {
+      nav.style.display = '';
+      nav.style.flexDirection = '';
+      nav.style.position = '';
+      nav.style.top = '';
+      nav.style.right = '';
+      nav.style.background = '';
+      nav.style.padding = '';
+      nav.style.borderRadius = '';
+      nav.style.boxShadow = '';
+    }
+  }
+
+  if(hamb){
+    hamb.addEventListener('click', ()=> {
+      const isOpen = nav.style.display === 'flex' && window.innerWidth < 980;
+      showMobile(!isOpen);
+    });
+    hamb.addEventListener('keydown', e => { if(e.key === 'Enter') hamb.click(); });
+  }
+
+  // smooth scroll on nav click & update active
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      if(!href || !href.startsWith('#')) return;
+      const id = href.slice(1);
+      const target = document.getElementById(id);
+      if(!target) return;
+      if(window.innerWidth < 980) showMobile(false);
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      setTimeout(()=> {
+        const heading = target.querySelector('h1,h2');
+        if(heading){ heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:true}); }
+      }, 600);
+    });
+  });
+
+  // scroll spy
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if(en.isIntersecting){
+        const id = en.target.id;
+        const active = links.find(l => l.getAttribute('href') === '#' + id);
+        if(active){
+          links.forEach(l => l.classList.remove('active'));
+          active.classList.add('active');
+        }
+      }
+    });
+  }, { threshold: 0.22, rootMargin: "0px 0px -18% 0px" });
+  sections.forEach(s => spy.observe(s));
+
+  // close mobile nav on resize
+  window.addEventListener('resize', ()=> { if(window.innerWidth >= 980) showMobile(false); });
+})();
+
+/* ---------------- reveal on scroll (.reveal) ---------------- */
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(en => {
+      if(en.isIntersecting){
+        en.target.classList.add('show');
+        obs.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -80px 0px" });
+  items.forEach(it => io.observe(it));
+})();
+
+/* ---------------- testimonials carousel (auto + manual + dots) ---------------- */
+(function(){
+  const list = document.getElementById('testList');
+  if(!list) return;
+  const cards = Array.from(list.children);
+  const prev = document.getElementById('testPrev');
+  const next = document.getElementById('testNext');
+  const dotsWrap = document.getElementById('testDots');
+  let idx = 0;
+
+  // build dots
+  cards.forEach((c,i)=>{
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.dataset.index = i;
+    d.addEventListener('click', ()=> { idx = i; update(); resetAuto(); });
+    dotsWrap.appendChild(d);
+  });
+
+  function update(){
+    const gap = 14; // matches CSS gap
+    const cardW = cards[0].offsetWidth + gap;
+    const maxTranslate = Math.max(0, (cards.length * cardW) - list.parentElement.clientWidth);
+    const translateX = Math.min( idx * cardW, maxTranslate );
+    list.style.transform = `translateX(${ -translateX }px)`;
+    // clamp idx
+    if(idx < 0) idx = 0;
+    if(idx > cards.length - 1) idx = cards.length - 1;
+    // update dots
+    Array.from(dotsWrap.children).forEach(d=> d.classList.toggle('active', Number(d.dataset.index) === idx));
+  }
+
+  if(prev) prev.addEventListener('click', ()=> { idx = Math.max(0, idx-1); update(); resetAuto(); });
+  if(next) next.addEventListener('click', ()=> { idx = Math.min(cards.length-1, idx+1); update(); resetAuto(); });
+
+  // auto-cycle
+  let auto = setInterval(()=> { idx = (idx + 1) % cards.length; update(); }, 4200);
+  function resetAuto(){ clearInterval(auto); auto = setInterval(()=> { idx = (idx + 1) % cards.length; update(); }, 4200); }
+
+  // pause/resume on hover/touch
+  list.addEventListener('mouseenter', ()=> clearInterval(auto));
+  list.addEventListener('mouseleave', ()=> resetAuto());
+
+  // touch swipe
+  let sx=0, dx=0;
+  list.addEventListener('touchstart', (e)=> { sx = e.touches[0].clientX; dx = 0; clearInterval(auto); }, {passive:true});
+  list.addEventListener('touchmove', (e)=> { dx = e.touches[0].clientX - sx; }, {passive:true});
+  list.addEventListener('touchend', ()=> {
+    if(dx > 40) { idx = Math.max(0, idx-1); update(); }
+    else if(dx < -40) { idx = Math.min(cards.length-1, idx+1); update(); }
+    resetAuto();
+  });
+
+  // initial layout after images/fonts loaded
+  window.addEventListener('load', ()=> { update(); });
+  window.addEventListener('resize', ()=> { update(); });
+})();
+
+/* ---------- accessibility: indicate keyboard navigation ---------- */
+(function(){ document.addEventListener('keydown', (e)=> { if(e.key === 'Tab') document.body.classList.add('user-is-tabbing'); }); })();
+</script>
+</body>
+</html>
